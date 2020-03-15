@@ -13,5 +13,7 @@ By JS you can generate cat images.
 3- Rock Paper Scissors Game
 You can play this game with your computer [ first you have to know the rules] :p
 
+4- Change button colors
+
 Voila!!
 
