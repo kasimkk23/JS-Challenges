@@ -109,6 +109,59 @@ function rpsFrontend(humanImageChoice, botImageChoice, finalMessage){
     document.getElementById('rps-div').appendChild(botDiv);
 }
 
+let all_buttons = document.getElementsByTagName('button');
+
+let copyAllButtons = [];
+
+for(let buttons = 0; buttons < all_buttons.length; buttons++) {
+    copyAllButtons.push(all_buttons[buttons].classList[1]); // give 2nd class of button
+}
+
+function buttonColorChange(buttonThingy){
+    if(buttonThingy.value === 'pink'){
+        buttonPink();
+    } else if(buttonThingy.value === 'green'){
+        buttonGreen();
+    } else if(buttonThingy.value === 'reset'){
+        buttonReset();
+    } else if(buttonThingy.value === 'random'){
+        buttonRandom();
+    }
+}
+
+function buttonPink(){
+    for(let buttons = 0; buttons < all_buttons.length; buttons++){
+        all_buttons[buttons].classList.remove(all_buttons[buttons].classList[1]); // remove all the colors of buttons
+        all_buttons[buttons].classList.add('btn-danger'); // add color button        
+    }
+}
+
+function buttonGreen(){
+    for(let buttons = 0; buttons < all_buttons.length; buttons++){
+        all_buttons[buttons].classList.remove(all_buttons[buttons].classList[1]); // remove all the colors of buttons
+        all_buttons[buttons].classList.add('btn-success'); // add color button        
+    }
+}
+
+function buttonReset(){
+    for(let buttons = 0; buttons < all_buttons.length; buttons++){
+        all_buttons[buttons].classList.remove(all_buttons[buttons].classList[1]);
+        all_buttons[buttons].classList.add(copyAllButtons[buttons]); // reset all the buttons that we had in empty array
+    }
+}
+
+function buttonRandom(){
+    let choices = ["btn-primary", "btn-warning", "btn-success", "btn-primary", "btn-warning", "btn-danger", "btn-success"];
+    for(let buttons = 0; buttons < all_buttons.length; buttons++){
+        let randomIndex = Math.floor(Math.random()*4);
+        all_buttons[buttons].classList.remove(all_buttons[buttons].classList[1]);
+        all_buttons[buttons].classList.add(choices[randomIndex]);
+    }
+}
+
+
+
+
 
 
 
